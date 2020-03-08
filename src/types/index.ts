@@ -1,4 +1,4 @@
-//字符串字面量类型
+// 字符串字面量类型
 export type Method =
   | 'get'
   | 'GET'
@@ -22,6 +22,7 @@ export interface AxiosRequestConfig {
   params?: any
   headers?: any
   responseType?: XMLHttpRequestResponseType
+  timeout?: number // 配置超时时间
 }
 
 export interface AxiosResponse {
@@ -35,3 +36,11 @@ export interface AxiosResponse {
 
 // 当 axios 返回的是 AxiosPromise 类型，那么 resolve 函数中的参数就是一个 AxiosResponse 类型
 export interface AxiosPromise extends Promise<AxiosResponse> {}
+
+export interface AxiosError extends Error {
+  isAxiosError: boolean
+  config: AxiosRequestConfig
+  code?: string | null
+  request?: any
+  response?: AxiosResponse
+}
