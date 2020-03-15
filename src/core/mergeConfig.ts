@@ -34,7 +34,7 @@ function deepMergeStrat(val1: any, val2: any): any {
   }
 }
 // 以下的key采用策略3
-const stratKeysDeepMerge = ['headers']
+const stratKeysDeepMerge = ['headers', 'auth']
 
 stratKeysDeepMerge.forEach(key => {
   strats[key] = deepMergeStrat
